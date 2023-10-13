@@ -1,1 +1,10 @@
 Initial Design Drafts
+    * Turtle Typer
+    * Its going to be a typing test that only has turtle facts
+    * Im going to make one data sturcture that holds the facts and one that holds the type so I can cross check them with eachother to make sure its right
+    * Key componets will be the interface that can controll both data structures for the facts and the letter typed, and the actuall HTML since that will be whats making up the box
+    * Inputs - text from player/person. output - the typing speed knowledge about turtles
+    * I plan to use multiple data structurs to hold the inputs and information for the players and using design sturcturs to see chnages in the person typing and get the speed and stuff.
+    * https://pythongeeks.org/python-typing-test-project/#:~:text=The%20steps%20to%20build%20the%20python%20typing%20speed,game%20Adding%20the%20widgets%20to%20the%20game%20window
+        - this explains alot of the main ideas to creating one its in python but it gives me a good idea on how to make it, so not as much coed but implementaiton and main ideas.
+    
