@@ -7,4 +7,5 @@ Initial Design Drafts
     * I plan to use multiple data structurs to hold the inputs and information for the players and using design sturcturs to see chnages in the person typing and get the speed and stuff.
     * https://pythongeeks.org/python-typing-test-project/#:~:text=The%20steps%20to%20build%20the%20python%20typing%20speed,game%20Adding%20the%20widgets%20to%20the%20game%20window
         - this explains alot of the main ideas to creating one its in python but it gives me a good idea on how to make it, so not as much coed but implementaiton and main ideas.
-    
+    * https://www.trvst.world/biodiversity/turtle-facts/
+        - turtle facts
