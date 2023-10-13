@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Input Box at 75% Down</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items at the top of the screen */
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .input-container {
+            text-align: left;
+            margin-top: 75vh; /* 75% down the screen */
+        }
+        
+        input[type="text"] {
+            padding: 10px;
+            width: 500px;
+            height: 40px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-container">
+        <input type="text" id="user-input" placeholder="Type something...">
+    </div>
+</body>
+</html>
