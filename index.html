@@ -5,15 +5,16 @@
     <style>
         body {
             display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Align items at the top of the screen */
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
             height: 100vh;
             margin: 0;
         }
         
         .input-container {
             text-align: left;
-            margin-top: 65vh; /* 75% down the screen */
+            margin-top: 60vh; /* Adjust this value to control the vertical position of the input */
         }
         
         textarea {
@@ -23,13 +24,29 @@
             border: 1px solid #000000;
             border-radius: 5px;
             box-sizing: border-box;
-            vertical-align: top; /* Align the text to the top of the input */
+            vertical-align: top;
+        }
+
+        h1 {
+            color: darkgreen;
+            text-shadow: 2px 2px 0px black;
+            text-align: center;
+            position: absolute; /* Position the text absolutely */
+            top: 10px; /* Adjust this value to control the vertical position of the text */
+            left: 0;
+            right: 0;
+            margin: auto;
+            font-size: 50px;
         }
     </style>
 </head>
 <body>
+    <h1>
+        TURTLE TYPER
+    </h1>
     <div class="input-container">
         <textarea id="user-input" placeholder="Type something..."></textarea>
     </div>
 </body>
 </html>
+
