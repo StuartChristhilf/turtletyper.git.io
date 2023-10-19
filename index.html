@@ -74,10 +74,19 @@
         userInput.addEventListener("keydown", function(event) {
             // Check if the key pressed is the "Backspace" key
             if (event.key === "Backspace") {
-                // Delete the last character from the PlayerList data structure
-                PlayerList.delete(PlayerList.dataStructure.length - 1);
-    
-                updateCharacterDisplay();
+                // Prevent the default Backspace behavior (clearing the whole text box)
+                event.preventDefault();
+
+                // Check if there is text in the text box
+                if (userInput.value.length > 0) {
+                    // Remove the last character from the textarea
+                    userInput.value = userInput.value.slice(0, -1);
+
+                    // Call the PlayerList method to delete the last character
+                    PlayerList.deleteLast();
+
+                    updateCharacterDisplay();
+                }
             }
         });
 
