@@ -27,6 +27,11 @@
             vertical-align: top;
         }
 
+        .character-container {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
         h1 {
             color: darkgreen;
             text-shadow: 2px 2px 0px black;
@@ -47,6 +52,39 @@
     <div class="input-container">
         <textarea id="user-input" placeholder="Type something..."></textarea>
     </div>
+
+    <div class="character-container">
+        <h2>Characters in Data Structure:</h2>
+        <p id="character-display"></p>
+    </div>
+
+    <script type="module">
+        import { PlayerList } from './PlayerList.js';
+
+        const userInput = document.getElementById("user-input");
+        const characterDisplay = document.getElementById("character-display");
+
+        userInput.addEventListener("input", function() {
+            // Add the typed character to the PlayerList data structure
+            const typedCharacter = userInput.value.charAt(userInput.value.length - 1);
+            PlayerList.add(typedCharacter);
+            updateCharacterDisplay();
+        });
+
+        userInput.addEventListener("keydown", function(event) {
+            // Check if the key pressed is the "Backspace" key
+            if (event.key === "Backspace") {
+                // Delete the last character from the PlayerList data structure
+                PlayerList.delete(PlayerList.dataStructure.length - 1);
+    
+                updateCharacterDisplay();
+            }
+        });
+
+        function updateCharacterDisplay() {
+            const characters = PlayerList.getAllCharacters();
+            characterDisplay.textContent = characters.join(', ');
+        }
+    </script>
 </body>
 </html>
-

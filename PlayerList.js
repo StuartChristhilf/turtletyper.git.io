@@ -1,19 +1,22 @@
-const Turtle = require('./turtleInterface');
-
-const PlayerList = {
+export const PlayerList = {
     dataStructure: [],
     add: function(value) {
-        // Implementation for adding to an array
+        this.dataStructure.push(value);
     },
     delete: function(index) {
-        // Implementation for deleting from an array
+        if (index >= 0 && index < this.dataStructure.length) {
+            this.dataStructure.splice(index, 1);
+        }
     },
     resize: function(newSize) {
         // Implementation for resizing an array
     },
-    check: function() { 
-
+    check: function() {
+        // Implementation for checking array
+    },
+    getAllCharacters: function() {
+        return this.dataStructure;
     }
 };
 
-module.exports = PlayerList; // Export the object
+
