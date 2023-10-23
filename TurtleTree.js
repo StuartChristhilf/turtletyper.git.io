@@ -22,6 +22,14 @@ class TurtleTree {
         }
     }
 
+    getFirstNode() {
+        let current = this.root;
+        while (current && current.left) {
+            current = current.left;
+        }
+        return current;
+    }
+    
     insertNode(node, newNode) {
         if (newNode.data.length < node.data.length) {
             if (node.left === null) {
