@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Turtle Tree Test</title>
+</head>
+<body>
+    <script type="module" src="TurtleTree.js"></script>
+    <script>
+        // Function to display the sorted facts in the console
+        function displaySortedFacts() {
+            const sortedFacts = TurtleTree.getAllCharacters();
+            console.log('Sorted Facts:', sortedFacts);
+        }
+
+        // Wait for the page to load
+        window.addEventListener('load', () => {
+            console.log('Page loaded. Testing TurtleTree functionality...');
+            
+            // Call your TurtleTree methods here to check if the tree is correctly constructed
+            // and if getAllCharacters returns the sorted facts.
+            
+            // For example, you could insert some data into the tree and then call displaySortedFacts to check.
+            // const someData = ["Fact 3", "Fact 1", "Fact 2"];
+            // someData.forEach((fact) => {
+            //     TurtleTree.insert(fact);
+            // });
+            // displaySortedFacts();
+        });
+    </script>
+</body>
+</html>
