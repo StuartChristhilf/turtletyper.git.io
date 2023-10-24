@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Turtle Tree Test</title>
+    <title>TurtleTree Test</title>
 </head>
 <body>
-    <script type="module" src="TurtleTree.js"></script>
-    <script>
-        // Function to display the sorted facts in the console
-        function displaySortedFacts() {
-            const sortedFacts = TurtleTree.getAllCharacters();
-            console.log('Sorted Facts:', sortedFacts);
-        }
+    <h1>TurtleTree Test</h1>
+    <script type="module">
+        import { TurtleTree } from './TurtleTree.js'; // Import the TurtleTree module
+        import LoadFacts from './LoadFacts.js'; // Import the LoadFacts module
 
-        // Wait for the page to load
-        window.addEventListener('load', () => {
-            console.log('Page loaded. Testing TurtleTree functionality...');
-            
-            // Call your TurtleTree methods here to check if the tree is correctly constructed
-            // and if getAllCharacters returns the sorted facts.
-            
-            // For example, you could insert some data into the tree and then call displaySortedFacts to check.
-            // const someData = ["Fact 3", "Fact 1", "Fact 2"];
-            // someData.forEach((fact) => {
-            //     TurtleTree.insert(fact);
-            // });
-            // displaySortedFacts();
-        });
+        // Populate the turtleTree with facts from 'turtlefacts.txt'
+        console.log('Populating turtleTree...');
+        const turtleTree = new TurtleTree();
+
+        // Display the sorted facts
+        turtleTree.insert(...LoadFacts); // Assuming LoadFacts exports an array of facts
+        const sortedFacts = turtleTree.getAllCharacters();
+        console.log('Sorted Facts:', sortedFacts);
+
+        // You can add more test cases and assertions here to further test your code.
     </script>
 </body>
 </html>
+Now, the TurtleTree class is correctly imported and accessible in your HTML script. This should resolve the "Uncaught ReferenceError" issue, and you should be able to run the test successfully.
+
+
+
+
+

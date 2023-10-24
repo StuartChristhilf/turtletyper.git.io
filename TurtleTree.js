@@ -1,4 +1,4 @@
-const fs = require('fs');
+// TurtleTree.js
 
 class TreeNode {
     constructor(data) {
@@ -8,7 +8,7 @@ class TreeNode {
     }
 }
 
-class TurtleTree {
+export class TurtleTree {
     constructor() {
         this.root = null;
     }
@@ -22,14 +22,6 @@ class TurtleTree {
         }
     }
 
-    getFirstNode() {
-        let current = this.root;
-        while (current && current.left) {
-            current = current.left;
-        }
-        return current;
-    }
-    
     insertNode(node, newNode) {
         if (newNode.data.length < node.data.length) {
             if (node.left === null) {
@@ -43,6 +35,13 @@ class TurtleTree {
             } else {
                 this.insertNode(node.right, newNode);
             }
+        }
+    }
+
+    buildTreeFromFacts(facts) {
+        const factsArray = facts.split('\n');
+        for (const fact of factsArray) {
+            this.insert(fact);
         }
     }
 
@@ -60,17 +59,3 @@ class TurtleTree {
         }
     }
 }
-
-const turtleTree = new TurtleTree();
-
-
-const fileContent = fs.readFileSync('turtlefacts.txt', 'utf8');
-const facts = fileContent.split('\n').filter(Boolean);
-
-
-facts.forEach((fact) => {
-    turtleTree.insert(fact);
-});
-
-const sortedFacts = turtleTree.getAllCharacters();
-console.log('Sorted Facts:', sortedFacts);
