@@ -11,12 +11,12 @@
             height: 100vh;
             margin: 0;
         }
-        
+    
         .input-container {
             text-align: left;
             margin-top: 10vh; /* Adjust this value to control the vertical position of the input */
         }
-        
+    
         textarea {
             padding: 10px;
             width: 500px;
@@ -26,12 +26,13 @@
             box-sizing: border-box;
             vertical-align: top;
         }
-
+    
         .character-container {
             margin-top: 2rem;
             text-align: center;
+            font-size: 25px;
         }
-
+    
         h1 {
             color: darkgreen;
             text-shadow: 2px 2px 0px black;
@@ -44,186 +45,229 @@
             font-size: 50px;
         }
     </style>
+    
 </head>
 <body>
     <h1>
         TURTLE TYPER
     </h1>
+    <br>
+    <br>
+    <div class="character-container">
+        <h2>TYPE THIS</h2>
+        <p id="node-display"></p>
+    </div>
     <div class="input-container">
+        <!-- Text input area where the user can type -->
         <textarea id="user-input" placeholder="Type something..."></textarea>
     </div>
 
     <div class="character-container">
+        <!-- Display area for characters and first node data -->
         <h2>Characters in Data Structure:</h2>
         <p id="character-display"></p>
-        <h2>First Node Data:</h2>
-        <p id="first-node-display"></p>
     </div>
 
     <script type="module">
-        import { PlayerList } from './PlayerList.js';
-        import { TurtleTree } from './TurtleTree.js';
+        // Import necessary JavaScript modules
+        import { PlayerList } from './PlayerList.js'; // Import PlayerList module
+        import { TurtleTree } from './TurtleTree.js';   // Import TurtleTree module
 
+        // Create a new instance of the TurtleTree class
         const turtleTree = new TurtleTree();
-        const firstNodeDisplay = document.getElementById("first-node-display");
 
-
-        const initialData = `
-        Turtles are reptiles.
-        They have a bony or cartilaginous shell.
-        The top part of the shell is called the carapace.
-        The bottom part of the shell is called the plastron.
-        Turtles can live on land or in water.
-        Some turtles are freshwater, some are terrestrial, and others are marine.
-        Tortoises are a type of land-dwelling turtle.
-        Turtles are cold-blooded animals.
-        They have a slow metabolism.
-        Turtles have a relatively long lifespan.
-        Some turtles can live for over 100 years. ,They have a unique respiratory system with lungs.
-        Turtles lay eggs to reproduce.
-        The sex of turtle hatchlings is often determined by temperature.
-        Turtles are found on every continent except Antarctica.
-        They come in various sizes, from a few inches to several feet in length.
-        Turtles have a keen sense of smell.
-        Some species of turtles have strong jaws and a powerful bite.
-        The leatherback sea turtle is the largest turtle species.
-        The worlds smallest turtle is the Speckled Cape Tortoise.
-        Turtles are slow-moving and are known for their steady pace.
-        Some turtles are known for their elaborate courtship rituals.
-        Many turtles are herbivores, eating plants and algae.
-        Others are omnivores and eat both plants and small animals.
-        Turtles have a protective shell, which they can retract into.
-        The shell is made of bony plates covered in keratin.
-        Sea turtles have flippers adapted for swimming.
-        Turtles can sense vibrations through their shells.
-        Some turtles are known for their striking patterns and colors.
-        The painted turtle gets its name from its colorful markings.
-        Turtles are known for their slow and deliberate movement.
-        They have a strong beak-like mouth for grasping food.
-        Some turtles are excellent swimmers.
-        The softshell turtle has a pliable, leathery shell.
-        Turtles have a good sense of vision.
-        Terrapins are small turtles that live in brackish water.
-        Turtles can hibernate during cold weather.
-        Tortoises are primarily herbivores.
-        Some turtles communicate through vocalizations.
-        Turtles have a long, retractable neck.
-        The Galapagos giant tortoise is famous for its size.
-        The loggerhead turtle is known for its large head.
-        Many turtle species are listed as threatened or endangered.
-        Turtles are important for various ecosystems.
-        Some turtles are known for their longevity.
-        The alligator snapping turtle has a powerful jaw.
-        Turtles have a protective, bony plate on their throat.
-        Terrapins are often found in estuaries.
-        Turtles have been kept as pets for centuries.
-        The gopher tortoise is a keystone species.
-        Leatherback turtles have a unique, leathery shell.
-        Hawksbill turtles are known for their beautiful shells.
-        Some turtles are migratory.
-        Turtles are often depicted in folklore and mythology.
-        The diamondback terrapin is native to North America.
-        Turtles play important roles in aquatic ecosystems.
-        Tortoises have short, stubby legs adapted for land.
-        The pig-nosed turtle is known for its distinct nose.
-        Turtles can move their limbs within their shells.
-        Sea turtles travel long distances in the ocean.
-        Turtles are known for their sturdy, long-lasting shells.
-        The box turtle is a terrestrial species.
-        Many turtle species are diurnal.
-        The red-eared slider is a popular pet turtle.
-        Turtles have been symbols of wisdom and longevity.
-        Some turtles are used in traditional medicine.
-        Turtles are poikilothermic, meaning their body temperature varies with their environment.
-        The Indian star tortoise has a star-like pattern on its shell.
-        Many turtles are solitary animals.
-        Some turtles have specialized adaptations for their habitat.
-        Turtles are ectothermic, relying on external sources of heat.
-        Turtles are found in various habitats, from deserts to wetlands.
-        The ploughshare tortoise is critically endangered.
-        Turtles are often associated with patience.
-        Turtles have existed on Earth for millions of years.
-        The painted terrapin is known for its striking colors.
-        Some turtles are known for their shy behavior.
-        The wood turtle is found in North America.
-        Turtles have been featured in art and literature for centuries.
-        Many turtles have strong claws for digging.
-        Turtles have a slow heart rate.
-        Turtles are known for their longevity and resilience.
-        Some turtles can retract their head and limbs fully into their shell.
-        Turtles have a unique reproductive strategy.
-        The African spurred tortoise is one of the largest species.
-        Turtles are an ancient group of reptiles.
-        They have a varied diet depending on their species.
-        Turtles are known for their calm demeanor.
-        The snapping turtle has a powerful bite.
-        Some turtle species are nocturnal.
-        Turtles have been studied for their unique anatomy.
-        Turtles have been kept as pets in many cultures.
-        The green sea turtle is known for its herbivorous diet.
-        Turtles have a strong sense of touch.
-        The hinged terrapin has a unique hinge on its plastron.
-        Turtles have a strong protective shell.
-        Some turtle species have unique patterns on their shells.
-        Turtles are slow reproducers.
-        Turtles are an important part of many ecosystems.
-        `;
-        const factsArray = initialData.trim().split('\n');
-
-        // Insert each line as a separate node
-        factsArray.forEach((line) => {
-            turtleTree.insert(line);
-        });
-        console.log('this is the first nodes data: ' + turtleTree.getFirstNode().data);
-
-        
-        // Display the data of the first node in the HTML
-    
+        // Get references to HTML elements for later use
+        const NodeDisplay = document.getElementById("node-display");
         const userInput = document.getElementById("user-input");
         const characterDisplay = document.getElementById("character-display");
 
-        userInput.addEventListener("input", function() {
-            // Add the typed character to the PlayerList data structure
-            const typedCharacter = userInput.value.charAt(userInput.value.length - 1);
-            PlayerList.add(typedCharacter);
-            updateCharacterDisplay();
-        });
+        // Initialize the tree with initial data
+        function initializeTree() {
+            // Define initial data as a string containing facts about turtles
+            const initialData = `
+            Turtles are reptiles.
+            They have a bony or cartilaginous shell.
+            The top part of the shell is called the carapace.
+            The bottom part of the shell is called the plastron.
+            Turtles can live on land or in water.
+            Some turtles are freshwater, some are terrestrial, and others are marine.
+            Tortoises are a type of land-dwelling turtle.
+            Turtles are cold-blooded animals.
+            They have a slow metabolism.
+            Turtles have a relatively long lifespan.
+            Some turtles can live for over 100 years. ,They have a unique respiratory system with lungs.
+            Turtles lay eggs to reproduce.
+            The sex of turtle hatchlings is often determined by temperature.
+            Turtles are found on every continent except Antarctica.
+            They come in various sizes, from a few inches to several feet in length.
+            Turtles have a keen sense of smell.
+            Some species of turtles have strong jaws and a powerful bite.
+            The leatherback sea turtle is the largest turtle species.
+            The worlds smallest turtle is the Speckled Cape Tortoise.
+            Turtles are slow-moving and are known for their steady pace.
+            Some turtles are known for their elaborate courtship rituals.
+            Many turtles are herbivores, eating plants and algae.
+            Others are omnivores and eat both plants and small animals.
+            Turtles have a protective shell, which they can retract into.
+            The shell is made of bony plates covered in keratin.
+            Sea turtles have flippers adapted for swimming.
+            Turtles can sense vibrations through their shells.
+            Some turtles are known for their striking patterns and colors.
+            The painted turtle gets its name from its colorful markings.
+            Turtles are known for their slow and deliberate movement.
+            They have a strong beak-like mouth for grasping food.
+            Some turtles are excellent swimmers.
+            The softshell turtle has a pliable, leathery shell.
+            Turtles have a good sense of vision.
+            Terrapins are small turtles that live in brackish water.
+            Turtles can hibernate during cold weather.
+            Tortoises are primarily herbivores.
+            Some turtles communicate through vocalizations.
+            Turtles have a long, retractable neck.
+            The Galapagos giant tortoise is famous for its size.
+            The loggerhead turtle is known for its large head.
+            Many turtle species are listed as threatened or endangered.
+            Turtles are important for various ecosystems.
+            Some turtles are known for their longevity.
+            The alligator snapping turtle has a powerful jaw.
+            Turtles have a protective, bony plate on their throat.
+            Terrapins are often found in estuaries.
+            Turtles have been kept as pets for centuries.
+            The gopher tortoise is a keystone species.
+            Leatherback turtles have a unique, leathery shell.
+            Hawksbill turtles are known for their beautiful shells.
+            Some turtles are migratory.
+            Turtles are often depicted in folklore and mythology.
+            The diamondback terrapin is native to North America.
+            Turtles play important roles in aquatic ecosystems.
+            Tortoises have short, stubby legs adapted for land.
+            The pig-nosed turtle is known for its distinct nose.
+            Turtles can move their limbs within their shells.
+            Sea turtles travel long distances in the ocean.
+            Turtles are known for their sturdy, long-lasting shells.
+            The box turtle is a terrestrial species.
+            Many turtle species are diurnal.
+            The red-eared slider is a popular pet turtle.
+            Turtles have been symbols of wisdom and longevity.
+            Some turtles are used in traditional medicine.
+            Turtles are poikilothermic, meaning their body temperature varies with their environment.
+            The Indian star tortoise has a star-like pattern on its shell.
+            Many turtles are solitary animals.
+            Some turtles have specialized adaptations for their habitat.
+            Turtles are ectothermic, relying on external sources of heat.
+            Turtles are found in various habitats, from deserts to wetlands.
+            The ploughshare tortoise is critically endangered.
+            Turtles are often associated with patience.
+            Turtles have existed on Earth for millions of years.
+            The painted terrapin is known for its striking colors.
+            Some turtles are known for their shy behavior.
+            The wood turtle is found in North America.
+            Turtles have been featured in art and literature for centuries.
+            Many turtles have strong claws for digging.
+            Turtles have a slow heart rate.
+            Turtles are known for their longevity and resilience.
+            Some turtles can retract their head and limbs fully into their shell.
+            Turtles have a unique reproductive strategy.
+            The African spurred tortoise is one of the largest species.
+            Turtles are an ancient group of reptiles.
+            They have a varied diet depending on their species.
+            Turtles are known for their calm demeanor.
+            The snapping turtle has a powerful bite.
+            Some turtle species are nocturnal.
+            Turtles have been studied for their unique anatomy.
+            Turtles have been kept as pets in many cultures.
+            The green sea turtle is known for its herbivorous diet.
+            Turtles have a strong sense of touch.
+            The hinged terrapin has a unique hinge on its plastron.
+            Turtles have a strong protective shell.
+            Some turtle species have unique patterns on their shells.
+            Turtles are slow reproducers.
+            Turtles are an important part of many ecosystems.
+            `;
 
-        userInput.addEventListener("keydown", function(event) {
-            // Check if the key pressed is the "Backspace" key
-            if (event.key === "Backspace") {
-                // Prevent the default Backspace behavior (clearing the whole text box)
-                event.preventDefault();
+            // Split the initial data into an array of individual facts
+            const factsArray = initialData.trim().split('\n');
 
-                // Check if there is text in the text box
-                if (userInput.value.length > 0) {
-                    // Remove the last character from the textarea
-                    userInput.value = userInput.value.slice(0, -1);
+            // Insert each fact as a separate node in the TurtleTree
+            factsArray.forEach((line) => {
+                turtleTree.insert(line);
+            });
+        }
 
-                    // Call the PlayerList method to delete the last character
-                    PlayerList.deleteLast();
+        // Handle user input in the text area
+        function handleUserInput() {
+            // Add an event listener to handle any typed input
+            userInput.addEventListener("input", function() {
+                // Get the latest character the user typed
+                const typedCharacter = userInput.value.charAt(userInput.value.length - 1);
 
-                    updateCharacterDisplay();
+                // Add the typed character to the PlayerList data structure
+                PlayerList.add(typedCharacter);
+
+                // Update the character display
+                updateCharacterDisplay();
+            });
+
+            // Add an event listener to handle Backspace key
+            userInput.addEventListener("keydown", function(event) {
+                // Check if the key pressed is the "Backspace" key
+                if (event.key === "Backspace") {
+                    // Prevent the default Backspace behavior (clearing the whole text box)
+                    event.preventDefault();
+
+                    // Check if there is text in the text box
+                    if (userInput.value.length > 0) {
+                        // Remove the last character from the textarea
+                        userInput.value = userInput.value.slice(0, -1);
+
+                        // Call the PlayerList method to delete the last character
+                        PlayerList.deleteLast();
+
+                        // Update the character display
+                        updateCharacterDisplay();
+                    }
                 }
-            }
-        });
+            });
+        }
 
+        // Update the character display area with the characters in the PlayerList
         function updateCharacterDisplay() {
+            // Get all characters from the PlayerList
             const characters = PlayerList.getAllCharacters();
+
+            // Display the characters as a comma-separated list
             characterDisplay.textContent = characters.join(', ');
         }
 
-        function updateFirstNodeDisplay() {
+        // Update the display of the first node data in the HTML
+        function updateNodeDisplay() {
+            // Get the first node in the TurtleTree
             const firstNode = turtleTree.getFirstNode();
-            const data = firstNode.data;
-            console.log('this is the current data' + data);
+
+            // Check if there is a first node
             if (firstNode) {
-                firstNodeDisplay.textContent = 'First Node Data:' + data;
+                // Get the data of the first node
+                const data = firstNode.data;
+
+                // Update the first node display with the data
+                NodeDisplay.textContent = data;
             } else {
-                firstNodeDisplay.textContent = "Tree is empty.";
+                // If the tree is empty, display a message
+                NodeDisplay.textContent = "Tree is empty.";
             }
         }
-        updateFirstNodeDisplay();
+
+        // Initialize the tree with initial data
+        initializeTree();
+
+        // Handle user input in the text area
+        handleUserInput();
+
+        // Update the character display
+        updateCharacterDisplay();
+
+        // Update the display of the first node
+        updateNodeDisplay();
     </script>
 </body>
 </html>
