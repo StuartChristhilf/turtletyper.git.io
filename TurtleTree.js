@@ -58,7 +58,14 @@ export class TurtleTree {
         }
     }
 
+    findLeftmostNode(node) {
+        while (node.left !== null) {
+            node = node.left;
+        }
+        return node;
+    }
+
     getFirstNode() {
-        return this.findLeftmostNode(this.root);
+        return this.root;
     }
 }

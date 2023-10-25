@@ -168,17 +168,16 @@
         Turtles are slow reproducers.
         Turtles are an important part of many ecosystems.
         `;
-        turtleTree.buildTreeFromFacts(initialData);
+        const factsArray = initialData.trim().split('\n');
 
+        // Insert each line as a separate node
+        factsArray.forEach((line) => {
+            turtleTree.insert(line);
+        });
+        console.log('this is the first nodes data: ' + turtleTree.getFirstNode().data);
+
+        
         // Display the data of the first node in the HTML
-        function updateFirstNodeDisplay() {
-            const firstNode = turtleTree.getFirstNode();
-            if (firstNode) {
-                firstNodeDisplay.textContent = `First Node Data: ${firstNode.data}`;
-            } else {
-                firstNodeDisplay.textContent = "Tree is empty.";
-            }
-        }
     
         const userInput = document.getElementById("user-input");
         const characterDisplay = document.getElementById("character-display");
@@ -213,6 +212,18 @@
             const characters = PlayerList.getAllCharacters();
             characterDisplay.textContent = characters.join(', ');
         }
+
+        function updateFirstNodeDisplay() {
+            const firstNode = turtleTree.getFirstNode();
+            const data = firstNode.data;
+            console.log('this is the current data' + data);
+            if (firstNode) {
+                firstNodeDisplay.textContent = 'First Node Data:' + data;
+            } else {
+                firstNodeDisplay.textContent = "Tree is empty.";
+            }
+        }
+        updateFirstNodeDisplay();
     </script>
 </body>
 </html>
