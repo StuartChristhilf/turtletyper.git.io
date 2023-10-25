@@ -1,5 +1,4 @@
 // TurtleTree.js
-
 class TreeNode {
     constructor(data) {
         this.data = data;
@@ -57,5 +56,9 @@ export class TurtleTree {
             result.push(node.data);
             this.inOrder(node.right, result);
         }
+    }
+
+    getFirstNode() {
+        return this.findLeftmostNode(this.root);
     }
 }

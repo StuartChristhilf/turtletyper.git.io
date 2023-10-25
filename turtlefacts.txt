@@ -8,8 +8,7 @@ Tortoises are a type of land-dwelling turtle.
 Turtles are cold-blooded animals.
 They have a slow metabolism.
 Turtles have a relatively long lifespan.
-Some turtles can live for over 100 years.
-They have a unique respiratory system with lungs.
+Some turtles can live for over 100 years. ,They have a unique respiratory system with lungs.
 Turtles lay eggs to reproduce.
 The sex of turtle hatchlings is often determined by temperature.
 Turtles are found on every continent except Antarctica.
