@@ -14,7 +14,7 @@
     
         .input-container {
             text-align: left;
-            margin-top: 10vh; /* Adjust this value to control the vertical position of the input */
+            margin-top: 1vh; /* Adjust this value to control the vertical position of the input */
         }
     
         textarea {
@@ -30,7 +30,7 @@
         .character-container {
             margin-top: 2rem;
             text-align: center;
-            font-size: 25px;
+            font-size: 25px;            
         }
     
         h1 {
@@ -238,16 +238,16 @@
             // Display the characters as a comma-separated list
             characterDisplay.textContent = characters.join(', ');
         }
-
+        
         // Update the display of the first node data in the HTML
         function updateNodeDisplay() {
             // Get the first node in the TurtleTree
-            const firstNode = turtleTree.getFirstNode();
+            const Node = turtleTree.getFirstNode();
 
             // Check if there is a first node
-            if (firstNode) {
+            if (Node) {
                 // Get the data of the first node
-                const data = firstNode.data;
+                const data = Node.data;
 
                 // Update the first node display with the data
                 NodeDisplay.textContent = data;

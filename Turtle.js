@@ -1,5 +1,6 @@
 const Turtle = {
     add: function() {},
+    insert: function() {},
     delete: function() {},
     getAllCharacters: function() {}
 };

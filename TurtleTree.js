@@ -68,4 +68,11 @@ export class TurtleTree {
     getFirstNode() {
         return this.root;
     }
+
+    getNodeDataAsArray(node) {
+        if (node) {
+            return node.toArray();
+        }
+        return [];
+    }
 }
