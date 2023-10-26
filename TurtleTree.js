@@ -13,28 +13,25 @@ export class TurtleTree {
     }
 
     insert(data) {
-        const newNode = new TreeNode(data);
-        if (!this.root) {
-            this.root = newNode;
-        } else {
-            this.insertNode(this.root, newNode);
-        }
+        this.root = this.insertNode(this.root, data);
     }
-
-    insertNode(node, newNode) {
-        if (newNode.data.length < node.data.length) {
-            if (node.left === null) {
-                node.left = newNode;
-            } else {
-                this.insertNode(node.left, newNode);
-            }
-        } else {
-            if (node.right === null) {
-                node.right = newNode;
-            } else {
-                this.insertNode(node.right, newNode);
-            }
+    
+    insertNode(node, data) {
+        if (node === null) {
+            return new TreeNode(data);
         }
+    
+        if (data.length < node.data.length) {
+            node.left = this.insertNode(node.left, data);
+        } else if (data.length > node.data.length) {
+            node.right = this.insertNode(node.right, data);
+        } else {
+            // Handle a situation where lengths are equal (you can choose how to handle this)
+            // In this example, I'm inserting to the right in this case
+            node.right = this.insertNode(node.right, data);
+        }
+    
+        return node;
     }
 
     buildTreeFromFacts(facts) {

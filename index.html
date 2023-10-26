@@ -85,17 +85,6 @@
         function initializeTree() {
             // Define initial data as a string containing facts about turtles
             const initialData = `
-            Turtles are reptiles.
-            They have a bony or cartilaginous shell.
-            The top part of the shell is called the carapace.
-            The bottom part of the shell is called the plastron.
-            Turtles can live on land or in water.
-            Some turtles are freshwater, some are terrestrial, and others are marine.
-            Tortoises are a type of land-dwelling turtle.
-            Turtles are cold-blooded animals.
-            They have a slow metabolism.
-            Turtles have a relatively long lifespan.
-            Some turtles can live for over 100 years. ,They have a unique respiratory system with lungs.
             Turtles lay eggs to reproduce.
             The sex of turtle hatchlings is often determined by temperature.
             Turtles are found on every continent except Antarctica.
@@ -115,6 +104,17 @@
             Some turtles are known for their striking patterns and colors.
             The painted turtle gets its name from its colorful markings.
             Turtles are known for their slow and deliberate movement.
+            Turtles are reptiles.
+            They have a bony or cartilaginous shell.
+            The top part of the shell is called the carapace.
+            The bottom part of the shell is called the plastron.
+            Turtles can live on land or in water.
+            Some turtles are freshwater, some are terrestrial, and others are marine.
+            Tortoises are a type of land-dwelling turtle.
+            Turtles are cold-blooded animals.
+            They have a slow metabolism.
+            Turtles have a relatively long lifespan.
+            Some turtles can live for over 100 years. ,They have a unique respiratory system with lungs.
             They have a strong beak-like mouth for grasping food.
             Some turtles are excellent swimmers.
             The softshell turtle has a pliable, leathery shell.
@@ -247,7 +247,7 @@
             // Check if there is a first node
             if (Node) {
                 // Get the data of the first node
-                const data = Node.data;
+                const data = Node.right.left.right.data;
 
                 // Update the first node display with the data
                 NodeDisplay.textContent = data;
