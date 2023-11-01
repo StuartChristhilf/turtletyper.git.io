@@ -72,4 +72,44 @@ export class TurtleTree {
         }
         return [];
     }
+
+    setCurrentNode(data) {
+        // Helper function to search for a node with matching data
+        function searchNode(node, data) {
+            if (node === null) {
+                return null;
+            }
+
+            // Compare the data of the current node with the provided data
+            if (node.data === data) {
+                return node;
+            }
+
+            // Recursively search the left and right subtrees
+            const leftResult = searchNode(node.left, data);
+            if (leftResult) {
+                return leftResult;
+            }
+
+            return searchNode(node.right, data);
+        }
+
+        // Start the search from the root
+        const matchingNode = searchNode(this.root, data);
+
+        if (matchingNode) {
+            // Set the matching node as the current node
+            this.currentNode = matchingNode;
+
+            // Clear the text box
+            document.getElementById("user-input").value = "";
+
+            // Clear the player list
+            PlayerList.clear();
+
+            // Update the character display
+            updateCharacterDisplay();
+        }
+    }
+
 }
