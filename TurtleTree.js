@@ -112,4 +112,25 @@ export class TurtleTree {
         }
     }
 
+    isPlayerInputMatching() {
+        const currentNode = this.currentNode;
+
+        if (currentNode) {
+            const currentNodeData = currentNode.data;
+            const playerInput = PlayerList.getAllCharacters().join('');
+
+            return currentNodeData === playerInput;
+        }
+
+        return false;
+    }
+    
+    getCurrentNodeData() {
+        if (!this.root) {
+            return null;
+        }
+
+        // Assuming you want to get the data of the current root node
+        return this.root.data;
+    }
 }

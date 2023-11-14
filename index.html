@@ -66,14 +66,16 @@
         // Import necessary JavaScript modules
         import { PlayerList } from './PlayerList.js'; // Import PlayerList module
         import { TurtleTree } from './TurtleTree.js';   // Import TurtleTree module
-
+        import { TurtleObserver } from './turtleobserver.js';   // Import TurtleObserver module
         // Create a new instance of the TurtleTree class
         const turtleTree = new TurtleTree();
+        
 
         // Get references to HTML elements for later use
         const NodeDisplay = document.getElementById("node-display");
         const userInput = document.getElementById("user-input");
         const characterDisplay = document.getElementById("character-display");
+        const turtleObserver = new TurtleObserver(turtleTree, characterDisplay);
 
         // Initialize the tree with initial data
         function initializeTree() {
@@ -263,35 +265,8 @@
         // Update the display of the first node
         updateNodeDisplay();
 
-        function checkMatchingCharacters() {
-            const playerCharacters = PlayerList.getAllCharacters();
-            const currentNodeData = turtleTree.getCurrentNodeData();
+        turtleObserver.checkMatchingCharacters();
 
-            const matchingCharacters = playerCharacters.filter(char => currentNodeData.includes(char));
-            characterDisplay.textContent = matchingCharacters.join(', ');
-
-            if (matchingCharacters.length === playerCharacters.length) {
-                firstNodeDisplay.textContent = "Player characters match current node data.";
-                // Get the next node, update current node, and clear the text box and player list
-                // Add the logic to achieve this here.
-            } else {
-                firstNodeDisplay.textContent = "Player characters do not match current node data.";
-            }
-        }
-
-        checkMatchingCharacters();
-
-        // Observer for changes in PlayerList and currentNode data
-        const observer = new MutationObserver(checkMatchingCharacters);
-        const config = { childList: true, subtree: true };
-
-        // Observe changes in PlayerList
-        const playerListContainer = document.getElementById("player-list-container");
-        observer.observe(playerListContainer, config);
-
-        // Observe changes in currentNode data
-        const currentNodeDataContainer = document.getElementById("current-node-data-container");
-        observer.observe(currentNodeDataContainer, config);
     </script>
 </body>
 </html>
