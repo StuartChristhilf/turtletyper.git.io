@@ -1,13 +1,13 @@
 // TurtleObserver.js
 import { PlayerList } from './PlayerList.js';
 
-export class TurtleObserver {
+export class TurtleObserver {//observe
     constructor(turtleTree, characterDisplay) {
         this.turtleTree = turtleTree;
         this.characterDisplay = characterDisplay;
     }
 
-    checkMatchingCharacters() {
+    checkMatchingCharacters() { //checks if playlist and first node match.
         const playerCharacters = PlayerList.getAllCharacters();
         const currentNodeData = this.turtleTree.getCurrentNodeData();
 
