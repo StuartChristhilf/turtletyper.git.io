@@ -13,6 +13,8 @@ export class TurtleObserver {//observe
 
         const matchingCharacters = playerCharacters.filter(char => currentNodeData.includes(char));
         this.characterDisplay.textContent = matchingCharacters.join(', ');
+        console.log("Player Characters:", playerCharacters);
+        console.log("Current Node Data:", currentNodeData);
 
         if (matchingCharacters.length === playerCharacters.length) {
             console.log("same")

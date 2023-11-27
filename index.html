@@ -191,40 +191,47 @@
         }
 
         // Handle user input in the text area
-        function handleUserInput() {
-            // Add an event listener to handle any typed input
-            userInput.addEventListener("input", function() {
-                // Get the latest character the user typed
-                const typedCharacter = userInput.value.charAt(userInput.value.length - 1);
+        // Handle user input in the text area
+function handleUserInput() {
+    // Add an event listener to handle any typed input
+    userInput.addEventListener("input", function() {
+        // Get the latest character the user typed
+        const typedCharacter = userInput.value.charAt(userInput.value.length - 1);
 
-                // Add the typed character to the PlayerList data structure
-                PlayerList.add(typedCharacter);
+        // Add the typed character to the PlayerList data structure
+        PlayerList.add(typedCharacter);
+
+        // Update the character display
+        updateCharacterDisplay();
+
+        // Check for matching characters
+        turtleObserver.checkMatchingCharacters();
+    });
+
+    // Add an event listener to handle Backspace key
+    userInput.addEventListener("keydown", function(event) {
+        // Check if the key pressed is the "Backspace" key
+        if (event.key === "Backspace") {
+            // Prevent the default Backspace behavior (clearing the whole text box)
+            event.preventDefault();
+
+            // Check if there is text in the text box
+            if (userInput.value.length > 0) {
+                // Remove the last character from the textarea
+                userInput.value = userInput.value.slice(0, -1);
+
+                // Call the PlayerList method to delete the last character
+                PlayerList.deleteLast();
 
                 // Update the character display
                 updateCharacterDisplay();
-            });
 
-            // Add an event listener to handle Backspace key
-            userInput.addEventListener("keydown", function(event) {
-                // Check if the key pressed is the "Backspace" key
-                if (event.key === "Backspace") {
-                    // Prevent the default Backspace behavior (clearing the whole text box)
-                    event.preventDefault();
-
-                    // Check if there is text in the text box
-                    if (userInput.value.length > 0) {
-                        // Remove the last character from the textarea
-                        userInput.value = userInput.value.slice(0, -1);
-
-                        // Call the PlayerList method to delete the last character
-                        PlayerList.deleteLast();
-
-                        // Update the character display
-                        updateCharacterDisplay();
-                    }
-                }
-            });
+                // Check for matching characters
+                turtleObserver.checkMatchingCharacters();
+            }
         }
+    });
+}
 
         // Update the character display area with the characters in the PlayerList
         function updateCharacterDisplay() {
@@ -243,7 +250,7 @@
             // Check if there is a first node
             if (Node) {
                 // Get the data of the first node
-                const data = Node.right.left.right.data;
+                const data = Node.data;
 
                 // Update the first node display with the data
                 NodeDisplay.textContent = data;
