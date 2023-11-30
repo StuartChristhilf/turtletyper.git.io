@@ -75,7 +75,7 @@
         const NodeDisplay = document.getElementById("node-display");
         const userInput = document.getElementById("user-input");
         const characterDisplay = document.getElementById("character-display");
-        const turtleObserver = new TurtleObserver(turtleTree, characterDisplay);
+        const turtleObserver = new TurtleObserver(turtleTree, characterDisplay, updateNodeDisplay);
 
         // Initialize the tree with initial data
         function initializeTree() {
@@ -259,6 +259,7 @@ function handleUserInput() {
                 NodeDisplay.textContent = "Tree is empty.";
             }
         }
+
 
         // Initialize the tree with initial data
         initializeTree();

@@ -133,4 +133,16 @@ export class TurtleTree {
         // Assuming you want to get the data of the current root node
         return this.root.data;
     }
+
+    getCurrentNode(){
+        return this.currentNode;
+    }
+
+    moveToNextNode() {
+        if (this.currentNode && this.currentNode.right) {
+            this.currentNode = this.currentNode.right;
+        } else {
+            console.log("End of the tree reached.");
+        }
+    }
 }

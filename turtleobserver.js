@@ -2,9 +2,10 @@
 import { PlayerList } from './PlayerList.js';
 
 export class TurtleObserver {//observe
-    constructor(turtleTree, characterDisplay) {
+    constructor(turtleTree, characterDisplay, updateNodeDisplay) {
         this.turtleTree = turtleTree;//hhi
         this.characterDisplay = characterDisplay;
+        this.updateNodeDisplay = updateNodeDisplay;
     }
 
     checkMatchingCharacters() {
@@ -13,7 +14,7 @@ export class TurtleObserver {//observe
     
         // Get the data of the current node from the TurtleTree
         const currentNodeData = this.turtleTree.getCurrentNodeData();
-    
+        const cNode = this.turtleTree.getCurrentNode();
         // Check if the typed characters exactly match the characters in the current node
         const match = playerCharacters.join('') === currentNodeData;
     
@@ -24,6 +25,8 @@ export class TurtleObserver {//observe
     
         if (match) {
             console.log("same");
+            this.turtleTree.moveToNextNode(); // Move to the next node
+            this.updateNodeDisplay(); // Update the display after moving to the next node
         } else {
             console.log("different");
         }
