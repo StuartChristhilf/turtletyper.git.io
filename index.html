@@ -70,6 +70,8 @@
         // Create a new instance of the TurtleTree class
         const turtleTree = new TurtleTree();
         
+        
+        
 
         // Get references to HTML elements for later use
         const NodeDisplay = document.getElementById("node-display");
@@ -188,7 +190,9 @@
             factsArray.forEach((line) => {
                 turtleTree.insert(line);
             });
+
         }
+        
 
         // Handle user input in the text area
         // Handle user input in the text area
@@ -245,7 +249,7 @@ function handleUserInput() {
         // Update the display of the first node data in the HTML
         function updateNodeDisplay() {
             // Get the first node in the TurtleTree
-            const Node = turtleTree.getFirstNode();
+            const Node = cnode;
 
             // Check if there is a first node
             if (Node) {
@@ -263,11 +267,13 @@ function handleUserInput() {
 
         // Initialize the tree with initial data
         initializeTree();
+        const cnode = turtleTree.getFirstNode();
 
         // Handle user input in the text area
         handleUserInput();
 
         // Update the character display
+        
         updateCharacterDisplay();
 
         // Update the display of the first node
