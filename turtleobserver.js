@@ -29,31 +29,9 @@ export class TurtleObserver {//observe
         if (match) {
             
             console.log("same");
-            if (x == undefined){
-                cNode = this.turtleTree.getFirstNode().right;
-                var x = 1;
-            } 
-            if(x == 1){
-                cNode = this.turtleTree.getFirstNode().right.right;
-                x++;
-            }
-            if(x == 2){
-                cNode = this.turtleTree.getFirstNode().right.right.right;
-                x++;
-            }
-            if(x == 3){
-                cNode = this.turtleTree.getFirstNode().right.right.right.right;
-                x++;
-            }
-            if(x == 4){
-                cNode = this.turtleTree.getFirstNode().right.right.right.right.right;
-                x++;
-            }
-            if(x == 5){
-                cNode = this.turtleTree.getFirstNode().right.right.right.right.right.right;
-                x++;
-            }
-            this.updateNodeDisplay(); // Update the display after moving to the next node
+            console.log(cNode);
+            cNode = cNode.right;
+            this.updateNodeDisplay(cNode); // Update the display after moving to the next node
         } else {
             console.log("different");
         }

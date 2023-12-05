@@ -10,6 +10,9 @@ export const PlayerList = {
     },
     getAllCharacters: function() {
         return this.dataStructure;
+    },
+    clearList: function() {
+        this.dataStructure = [];
     }
 };
 
