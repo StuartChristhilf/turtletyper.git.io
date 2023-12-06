@@ -78,7 +78,7 @@
         
         const userInput = document.getElementById("user-input");
         const characterDisplay = document.getElementById("character-display");
-        const turtleObserver = new TurtleObserver(turtleTree, characterDisplay, updateNodeDisplay);
+        
 
         // Initialize the tree with initial data
         function initializeTree() {
@@ -270,6 +270,7 @@ function handleUserInput() {
         // Initialize the tree with initial data
         initializeTree();
         var cNode = turtleTree.getFirstNode();
+        const turtleObserver = new TurtleObserver(turtleTree, characterDisplay, updateNodeDisplay, cNode);
 
         // Handle user input in the text area
         handleUserInput();
